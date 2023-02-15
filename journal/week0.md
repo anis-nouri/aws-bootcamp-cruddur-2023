@@ -13,7 +13,7 @@
 ### Create Budgets
 I set up a two cost budgets in the AWS Billing Console using **AWS Budgets**.
 One to track my dollar spending , and the other one for tracking my credits spending.
-![Create Budgets](/assets/Week0-Create_Budgets.PNG) 
+![Create Budgets](assets/Week0-Create_Budgets.PNG) 
 
 
 
