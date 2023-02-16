@@ -21,10 +21,20 @@ Steps followed:
 
 ![Enable MFA](assets/Week0-MFA.PNG)
 
-
-**insert image**
-
 #### Create Admin User:
+IAM (Identity and Access Management) admin user is a type of user in AWS that has full administrative access to the AWS Management Console and all AWS services and resources.
+
+1. Log in to the **AWS Management Console** using your root account credentials.
+2. Go to the **IAM dashboard** and click on **Users**.
+3. Click on **Add User** and enter a name for the new user.
+4. click on **Provide user access to the AWS Management Console**.
+5. Set a password or have AWS generate one for you.
+6. Add the user to the "Administrators" group or attach the "AdministratorAccess" policy.
+7. Review and click on "Create User."
+
+![Enable MFA](assets/week0-Create-admin.PNG
+
+Enable MFA for the admin user created, to ensure the security of your AWS resources.
 
 
 ### Create a Billing Alarm
