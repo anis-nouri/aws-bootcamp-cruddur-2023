@@ -11,7 +11,16 @@ The root account is the most privileged account with all the access, hence prote
 It is strongly recommend that we do not use the root user account for everyday tasks, even the administrative ones. Root user credentials are only used to perform a few account and service management tasks.
 In order to protect my root user account I did the following:
 #### Enable MFA:
-AWS multi-factor authentication (MFA) is an AWS Identity and Access Management (IAM) best practice that requires a second authentication factor in addition to user name and password sign-in credentials.
+AWS multi-factor authentication (MFA) is an AWS Identity and Access Management (IAM) best practice that requires a second authentication factor in addition to user name and password sign-in credentials.  
+
+Steps followed:  
+1. Log in to the AWS Management Console using your root account credentials.
+2. Go to "My Security Credentials" page and select "Activate MFA."
+3. :Choose the type of MFA device you want to use.
+4. :Follow the setup instructions for the MFA device type you selected.
+
+![Enable MFA](assets/Week0-MFA.PNG)
+
 
 **insert image**
 
