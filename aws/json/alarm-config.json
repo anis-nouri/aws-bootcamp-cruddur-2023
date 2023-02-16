@@ -1,6 +1,6 @@
 {
     "AlarmName": "DailyEstimatedCharges",
-    "AlarmDescription": "This alarm would be triggered if the daily estimated charges exceeds 50$",
+    "AlarmDescription": "This Alarm would be triggered if the daily estimated charges exceeds 50$",
     "ActionsEnabled": true,
     "AlarmActions": [
         "arn:aws:sns:ca-central-1:055531036085:billing-alarm"
