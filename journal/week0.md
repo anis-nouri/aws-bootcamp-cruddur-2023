@@ -40,7 +40,7 @@ To configure auto-prompt I used this command in the CloudShell:
 aws --cli-auto-prompt
 ```
 
-**insert image**
+![Use CloudShell](assets/Week0-Use-CloudShell.PNG)
 
 ### Install AWS CLI
 
