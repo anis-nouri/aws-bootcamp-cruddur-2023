@@ -32,7 +32,7 @@ IAM (Identity and Access Management) admin user is a type of user in AWS that ha
 6. Add the user to the "Administrators" group or attach the "AdministratorAccess" policy.
 7. Review and click on "Create User."
 
-![Enable MFA](assets/week0-Create-admin.PNG
+![Enable MFA](assets/week0-Create-admin.PNG)
 
 Enable MFA for the admin user created, to ensure the security of your AWS resources.
 
