@@ -36,7 +36,25 @@ One to track my dollar spending , and the other one for tracking my credits spen
 
 ![Create Budgets](assets/Week0-Create_Budgets.PNG) 
 
-
+#### Using AWS CLI to create a bugdet:
+To create a budget using AWS CLI I used the example from the [AWS CLI Command Reference - AWS Documentation](https://docs.aws.amazon.com/cli/latest/reference/budgets/create-budget.html).  
+* Set an environment variable named **AWS_ACCOUNT_ID**, export it to the global environment:
+```
+export AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+```
+* Create the json files "budget-notifications-with-subscribers.json" and "budget.json" both ound on the refrenced link.
+* Create the budget: To create a budget in AWS, you will need to run the create-budget command using the AWS CLI.
+```
+aws budgets create-budget \
+    --account-id $AWS_ACCOUNT_ID \
+    --budget file://aws/json/budget.json \
+    --notifications-with-subscribers file://aws/json/budget-notifications-with-subscribers.json
+```
+* Run the following command to list all budgets in your AWS account:
+```
+aws budgets describe-budgets --account-id
+```
+![Create Bugdet](assets/Week0-Create-budget-CLI.png)
 
  
 ### Use CloudShell
