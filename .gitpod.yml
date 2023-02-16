@@ -1,8 +1,9 @@
-
+# Install the AWS CLI
+# See https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html
 tasks:
   - name: aws-cli
     env:
-      AWS-CLI-AUTO-PROMPT: on-partial
+      AWS_CLI_AUTO_PROMPT: on-partial
     init: |
       cd /workspace
       curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
