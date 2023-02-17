@@ -6,7 +6,7 @@
 
 ### Logical Architectual Diagram in Lucid Charts
 
-![Crudder Architectual Diagram](assets/week0-Crudder Logical Diagram.png)
+![Crudder Architectual Diagram](assets/Week0-Crudder-Logical-Diagram.png)
 
 I added a CI/CD pipeline in the digram using these services:
 * **AWS CodePipeline**: To create the pipeline.
