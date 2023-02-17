@@ -100,9 +100,14 @@ To set this up we need to do the following steps:
 
 1. Create an SNS Topic:
 
+![SNS topic](assets/Week0-SNS-topic.PNG)
+
 2. Create an EventBridge Rule:
 
+![event bridge rule](assets/Week0-eventbridge-rule.png)
+
 3. Subscribe to the SNS Topic:
+![SNS create Sub](assets/Week0-SNS-CreateSub.png)
 
 
 That's it! Now, when there is a service health issue, EventBridge will send a notification to the SNS topic created, and the subscribers to the topic will receive the notification via email.
