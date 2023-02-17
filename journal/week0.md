@@ -93,3 +93,17 @@ aws --cli-auto-prompt
 
 ## Homework Challenges
 
+#### Description
+AWS Health generates an event when there is a service health issue. The event contains information about the affected AWS services, the region in which the issue occurred, and the status of the issue. When this event is sent to EventBridge, it can be used to trigger actions in our case sending notifications to an SNS topic.
+
+To set this up we need to do the following steps:
+
+1. Create an SNS Topic:
+
+2. Create an EventBridge Rule:
+
+3. Subscribe to the SNS Topic:
+
+
+That's it! Now, when there is a service health issue, EventBridge will send a notification to the SNS topic created, and the subscribers to the topic will receive the notification via email.
+
