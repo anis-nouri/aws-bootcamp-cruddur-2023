@@ -112,3 +112,8 @@ To set this up we need to do the following steps:
 
 That's it! Now, when there is a service health issue, EventBridge will send a notification to the SNS topic created, and the subscribers to the topic will receive the notification via email.
 
+Here are some helpful AWS documentation sources:
+[Creating an Amazon SNS topic](https://docs.aws.amazon.com/sns/latest/dg/sns-tutorial-create-topic.html) 
+[Creating an Amazon EventBridge rule](https://docs.aws.amazon.com/eventbridge/latest/userguide/create-eventbridge-rule.html)
+[Subscribing to an Amazon SNS topic](https://docs.aws.amazon.com/sns/latest/dg/SubscribeTopic.html) 
+
