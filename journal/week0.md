@@ -49,7 +49,7 @@ Enable MFA for the admin user created, to ensure the security of your AWS resour
 ### Install AWS CLI
 * Configure the AWS CLI on the GitPod, by configuring `.gitpod.yml`, It is a YAML  configuration file that allows you to define the environment for your Gitpod workspace, and is placed in the root directory of your project allowing you to specify dependencies, environment variables, editor extensions, and more.
 
-Here is the code written in the YAML file.
+Here is the code written in the YAML file:
 ```
 tasks:
   - name: aws-cli
@@ -62,8 +62,8 @@ tasks:
       sudo ./aws/install
       cd $THEIA_WORKSPACE_ROOT
 ```
-  * [Get AWS Account access key ID and secret access key](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html)
-  * Set up environmental variables
+  * [Get AWS Account access key ID and secret access key](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html).
+  * Set up environment variables.
 ```
 gp AWS_ACCESS_KEY_ID=""
 gp AWS_SECRET_ACCESS_KEY=""
@@ -133,7 +133,8 @@ To set this up we need to do the following steps:
 
 That's it! Now, when there is a service health issue, EventBridge will send a notification to the SNS topic created, and the subscribers to the topic will receive the notification via email.
 
-Here are some helpful AWS documentation sources:
-[Creating an Amazon SNS topic](https://docs.aws.amazon.com/sns/latest/dg/sns-tutorial-create-topic.html) 
-[Creating an Amazon EventBridge rule](https://docs.aws.amazon.com/eventbridge/latest/userguide/create-eventbridge-rule.html)
-[Subscribing to an Amazon SNS topic](https://docs.aws.amazon.com/sns/latest/dg/SubscribeTopic.html) 
+Here are some helpful AWS documentation sources:  
+[Creating an Amazon SNS topic](https://docs.aws.amazon.com/sns/latest/dg/sns-tutorial-create-topic.html).  
+[Creating an Amazon EventBridge rule](https://docs.aws.amazon.com/eventbridge/latest/userguide/create-eventbridge-rule.html).  
+[Subscribing to an Amazon SNS topic](https://docs.aws.amazon.com/sns/latest/dg/SubscribeTopic.html).  
+
