@@ -92,7 +92,7 @@ aws --cli-auto-prompt
 ### Install AWS CLI
 
 ## Homework Challenges
-
+### Use EventBridge to hookup Health Dashboard to SNS and send notification when there is a service health issue:
 #### Description
 AWS Health generates an event when there is a service health issue. The event contains information about the affected AWS services, the region in which the issue occurred, and the status of the issue. When this event is sent to EventBridge, it can be used to trigger actions in our case sending notifications to an SNS topic.
 
