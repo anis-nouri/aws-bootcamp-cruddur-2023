@@ -72,8 +72,11 @@ gp AWS_ACCESS_KEY_ID=""
 gp AWS_SECRET_ACCESS_KEY=""
 gp AWS_DEFAULT_REGION=us-""
 ```
-
-### Create a Billing Alarm
+* To check that the environment variables are set correctly:
+```
+env | grep AWS
+```
+![Check envirement variable](assets/Week0-envirement-variables.PNG) 
 
 
 ### Create Budgets
