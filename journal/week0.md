@@ -2,7 +2,10 @@
 
 ## Required Homework
 
-### Conceptual Diagram in Lucid Charts or on a Napkin
+### Conceptual Diagram in Lucid Charts:
+![Crudder Conceptual Diagram](assets/Week0-Conceptual-Diagram.png)
+
+Here is the [lucidchart link](https://lucid.app/lucidchart/ebbacdae-2e94-416d-93f4-5e51b69b7ce6/edit?viewport_loc=-516%2C12%2C1208%2C616%2C0_0&invitationId=inv_23720390-1bdf-4196-a52b-bb8583679420) for my conceptual diagram.
 
 ### Logical Architectural Diagram in Lucid Charts
 
@@ -14,7 +17,7 @@ I added a CI/CD pipeline in the diagram using these services:
 * **AWS CodeBuild**: To build the application code and generate the artifacts, then output the generated artifacts to the S3 bucket.
 * **AWS CodeDeploy**: To deploy the artifacts to the target environment, in this case ECS clusters.
 
-here is the [lucidchart link](https://lucid.app/lucidchart/a40d3982-f035-471c-bede-2b6694b84140/edit?viewport_loc=-267%2C-56%2C3623%2C1848%2C0_0&invitationId=inv_ed90e67a-ae8b-4761-8bcf-7e635c2c714e) for my diagram.
+here is the [lucidchart link](https://lucid.app/lucidchart/a40d3982-f035-471c-bede-2b6694b84140/edit?viewport_loc=-267%2C-56%2C3623%2C1848%2C0_0&invitationId=inv_ed90e67a-ae8b-4761-8bcf-7e635c2c714e) for my architectural diagram.
 
 ### Setting up The Root account and Admin user
 The root account is the most privileged account with all the access, hence protecting it is a necessity.
@@ -69,7 +72,6 @@ gp AWS_ACCESS_KEY_ID=""
 gp AWS_SECRET_ACCESS_KEY=""
 gp AWS_DEFAULT_REGION=us-""
 ```
-  
 
 ### Create a Billing Alarm
 
