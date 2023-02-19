@@ -104,6 +104,22 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/MessageGroup'
+  /api/activities/notifications:
+    get:
+      description: 'Return a feed of activities for all of those i follow'
+      tags:
+        - activities
+      responses:
+        '200':
+          description: 'Returns an array of activities'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Activity'
+                   
+
   /api/messages/@{handle}:
     get:
       description: 'Returns private communication between two users'
