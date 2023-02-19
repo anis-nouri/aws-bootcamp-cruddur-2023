@@ -13,3 +13,13 @@ tasks:
 vscode:
   extensions:
     - 42Crunch.vscode-openapi
+
+
+ports:
+# Expose port 3000 to access the web application frontend.
+  - port: 3000
+    onOpen: open-preview
+
+# Expose port 4567 for the backend.
+  - port: 4567
+    onOpen: ignore
