@@ -16,12 +16,10 @@ vscode:
 
 
 ports:
-# Expose port 3000 to access the web application frontend.
+# Expose port 3000 and change visibility to public to access the web application frontend.
   - port: 3000
-    onOpen: open-preview
     visibility: public
 
-# Expose port 4567 for the backend.
+# Expose port 4567 change visibility to public for the backend.
   - port: 4567
-    onOpen: ignore
     visibility: public
