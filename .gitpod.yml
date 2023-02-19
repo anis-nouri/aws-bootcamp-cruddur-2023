@@ -19,7 +19,9 @@ ports:
 # Expose port 3000 to access the web application frontend.
   - port: 3000
     onOpen: open-preview
+    visibility: public
 
 # Expose port 4567 for the backend.
   - port: 4567
     onOpen: ignore
+    visibility: public
