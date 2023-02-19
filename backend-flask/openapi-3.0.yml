@@ -109,6 +109,7 @@ paths:
       description: 'Return a feed of activities for all of those i follow'
       tags:
         - activities
+      parameters: []
       responses:
         '200':
           description: 'Returns an array of activities'
@@ -118,7 +119,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Activity'
-                   
+
 
   /api/messages/@{handle}:
     get:
