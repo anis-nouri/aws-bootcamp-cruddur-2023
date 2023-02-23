@@ -68,9 +68,9 @@ tasks:
   * [Get AWS Account access key ID and secret access key](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html).
   * Set up environment variables.
 ```
-gp AWS_ACCESS_KEY_ID=""
-gp AWS_SECRET_ACCESS_KEY=""
-gp AWS_DEFAULT_REGION=us-""
+gp env AWS_ACCESS_KEY_ID=""
+gp env AWS_SECRET_ACCESS_KEY=""
+gp env AWS_DEFAULT_REGION=us-""
 ```
 * To check that the environment variables are set correctly:
 ```
