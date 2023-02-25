@@ -46,7 +46,9 @@ Here is the tagged docker image.
 docker push <docker-hub-username>/<repository-name>:<tag>
 ```
 ![push image Dockerhub ](assets/week1-Docker-pushImage-2.PNG)
-That's all, now the docker image is pushed to the Dockerhub repository.
+
+The Docker image has been successfully pushed to Docker Hub! It's now available in the Docker Hub repository ready to be pulled and shared with others.
+
 ![image Dockerhub ](assets/week1-Dockerhub-Image-2.PNG)
 
 
@@ -117,6 +119,36 @@ Docker ps
 2. Delete the associated security group(s): `aws ec2 delete-security-group`. 
 3. Delete the associated key pair: `aws ec2 delete-key-pair`. 
 
+## Implementing a health check in the Docker compose file:
+The docker health check is a feature used to determine the health state of a running container, When a health check command is specified, it tells Docker how to test the container to see if it's working.  
+Using the dockercompose , I tried to check the health of my backend server container, so I added this under backend-flask **service** in my `docker-compose.yml`:
+```
+    healthcheck:
+      test: curl --fail https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}/api/activities/notifications
+      interval: 60s
+      retries: 5
+      start_period: 20s
+      timeout: 10s
+```
+- **Test**: This property specifies the command that will be executed and is the health check of the container, for this case I used the `curl` command which is used to make HTTP requests.
+
+![health inspect](assets/week1-healthcheck-unhealthy.PNG)
+The health status returned is unhealthy although I can run my app correctly from the browser, so I used the `docker inspect command` to see the details .
+
+```
+docker inspect --format='{{json .State.Health}}' 2b13bcb0a0f8 | jq
+```
+![health inspect](assets/week1-health-inspect.PNG)
+
+The output from the docker inspect command shows that the container's healthcheck is failing due to the `curl` command not being found, To resolve this issue, I had to modify the Dockerfile and include the curl package as part of the container's base image.
+```
+RUN apt-get update && \
+    apt-get install -y curl && \
+    pip3 install -r requirements.txt
+```
+That's all now the containter's health status is healthy. 
+
+![healthy status](assets/week1-healthcheck-healthy.PNG)
 
 
 
