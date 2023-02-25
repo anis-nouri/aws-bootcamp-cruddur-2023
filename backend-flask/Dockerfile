@@ -12,4 +12,8 @@ COPY . .
 ENV FLASK_ENV=app.py
 
 EXPOSE ${PORT}
-CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]
+
+# Run flask when the container launches using external script
+CMD ["/bin/bash", "start_server.sh"]
+
+# CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]
