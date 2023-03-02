@@ -163,6 +163,9 @@ def data_home():
   return data, 200
 
 @app.route("/api/activities/notifications", methods=['GET'])
+# X-Ray ----------------
+# Start a segment
+@xray_recorder.capture('notifications-activities')
 def data_notifications():
   data = NotificationsActivities.run()
   return data, 200

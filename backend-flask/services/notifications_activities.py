@@ -3,10 +3,6 @@ from aws_xray_sdk.core import xray_recorder
 
 class NotificationsActivities:
   def run():
-    # X-Ray ----------------
-    # Start a segment
-    # segment = xray_recorder.begin_segment('notifications-activities')
-
     now = datetime.now(timezone.utc).astimezone()
     results = [{
       'uuid': '68f126b0-1ceb-4a33-88be-d90fa7109eee',
@@ -31,12 +27,13 @@ class NotificationsActivities:
     ]
     # X-Ray ----------------
     # Start a subsegment
-    """
     subsegment = xray_recorder.begin_subsegment('mock_data')
     dict={
       "now":now.isoformat(),
       "results":len(results)
     }
-    segment.put_metadata('key', dict, 'namespace')
-    """
+    subsegment.put_metadata('key', dict, 'namespace')
+    xray_recorder.end_subsegment()
+ 
+    
     return results
