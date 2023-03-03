@@ -1,6 +1,9 @@
 import './HomeFeedPage.css';
 import React from "react";
 
+import opentelemetry from '@opentelemetry/api';
+import {reportSpan} from '../utilities/tracing'
+
 import DesktopNavigation  from '../components/DesktopNavigation';
 import DesktopSidebar     from '../components/DesktopSidebar';
 import ActivityFeed from '../components/ActivityFeed';
@@ -18,18 +21,41 @@ export default function HomeFeedPage() {
   const [user, setUser] = React.useState(null);
   const dataFetchedRef = React.useRef(false);
 
+ 
   const loadData = async () => {
     try {
+    
+      // Create a tracer and start the parent span
+      const tracer = opentelemetry.trace.getTracer('loadData');
+      const parentSpan = tracer.startSpan('loadData');
+      const parentId = parentSpan._spanContext.spanId
+  
+      // Call the backend and record the span duration
+      const fetchDataSpan = tracer.startSpan('fetchData', { parent: parentSpan });
+      fetchDataSpan.setAttribute('parentSpanId', parentId);
+      
       const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/activities/home`
-      const res = await fetch(backend_url, {
-        method: "GET"
-      });
+      const res = await fetch(backend_url, { method: "GET" });
       let resJson = await res.json();
+      fetchDataSpan.end();
+    
+
+      // Process the data and record the span duration
+      const processDataSpan = tracer.startSpan('processData', { parent: parentSpan });
+      processDataSpan.setAttribute('parentSpanId', parentId);
+
       if (res.status === 200) {
         setActivities(resJson)
       } else {
         console.log(res)
       }
+      processDataSpan.end();
+  
+      // End the parent span
+      parentSpan.end();
+  
+      // Report the parent span
+      reportSpan([parentSpan, fetchDataSpan, processDataSpan]);
     } catch (err) {
       console.log(err);
     }

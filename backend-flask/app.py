@@ -1,5 +1,8 @@
 from flask import Flask
 from flask import request
+from flask import jsonify
+
+
 from flask_cors import CORS, cross_origin
 import os
 
@@ -157,6 +160,39 @@ def data_create_message():
     return model['data'], 200
   return
 
+@app.route("/api/send-trace", methods=['POST'])
+@cross_origin()
+def send_trace():
+    try:
+        # Extract trace information from request body
+        trace_data_list = request.json
+        tracer = trace.get_tracer(__name__)
+
+        # Loop through the list of spans and create a new span for each one
+        for trace_data in trace_data_list:
+            trace_SpanContext = trace_data.get('_SpanContext')
+            duration = trace_data.get("duration")
+            start_time = trace_data.get("startTime")
+            end_time = trace_data.get("endTime")
+            name = trace_data.get("name")
+            parent_span_id = trace_data.get("parentSpanId")
+            print("--------------------",parent_span_id)
+            # Create a new span and set attributes
+            with tracer.start_as_current_span(
+                name=name,
+                context=trace_SpanContext,
+            ) as span:
+                span.set_attribute("duration", duration)
+                span.set_attribute("start_time", start_time)
+                span.set_attribute("end_time", end_time)
+
+        # Return success response
+        return ({"message": "Trace sent successfully"}), 200
+    
+    except Exception as e:
+        # Return error response if span fails to export
+        return ({"error": str(e)}), 500
+    
 @app.route("/api/activities/home", methods=['GET'])
 def data_home():
   data = HomeActivities.run()
@@ -164,7 +200,7 @@ def data_home():
 
 @app.route("/api/activities/notifications", methods=['GET'])
 # X-Ray ----------------
-# Start a segment
+# Start a subsegment
 @xray_recorder.capture('notifications-activities')
 def data_notifications():
   data = NotificationsActivities.run()
