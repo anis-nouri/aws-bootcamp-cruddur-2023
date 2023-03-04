@@ -7,7 +7,8 @@
 	},
 	"remoteEnv": {
 		"AWS_CLI_AUTO_PROMPT": "on-partial",
-		"AWS_DEFAULT_REGION": "ca-central-1"
+		"AWS_DEFAULT_REGION": "ca-central-1",
+		"HONEYCOMB_SERVICE_NAME": "Cruddur"
 	},	
 	"customizations": {
 		"vscode": {
