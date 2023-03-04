@@ -6,7 +6,8 @@
 		"ghcr.io/devcontainers/features/aws-cli:1": {}
 	},
 	"remoteEnv": {
-		"AWS_CLI_AUTO_PROMPT": "on-partial"
+		"AWS_CLI_AUTO_PROMPT": "on-partial",
+		"AWS_DEFAULT_REGION": "ca-central-1"
 	},	
 	"customizations": {
 		"vscode": {
