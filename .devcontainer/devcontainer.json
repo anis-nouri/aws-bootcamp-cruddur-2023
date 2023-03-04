@@ -26,13 +26,12 @@
 		
 
 
-	}
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-
-	// Configure tool-specific properties.
-	// "customizations": {},
-
-	// Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "devcontainer"
+	},
+	"forwardPorts": [3000,4567,2000],
+	"portsAttributes": {
+        "3000": {"visibility": "public"},
+		"4567": {"visibility": "public"},
+		"2000": {"visibility": "public"}
+    },
+	"postCreateCommand": "cd /workspaces/aws-bootcamp-cruddur-2023/frontend-react-js && npm install"
 }
