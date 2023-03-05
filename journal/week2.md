@@ -192,12 +192,13 @@ root.render(
 4. Create a function that reports spans to a backend server by extracting relevant information from each span and sending it as a payload using a POST request.  
 **Code here**: https://github.com/anis-nouri/aws-bootcamp-cruddur-2023/blob/test/frontend-react-js/src/utilities/tracing.js
 
-6. Create the spans , I tried creating spans In the HomeFeedData Loading function that are gonna help to calculate **latency** between the frontend and backend, So The loadData function has the following stages:
+5. Create the spans , I tried creating spans In the HomeFeedData Loading function that are gonna help to calculate **latency** between the frontend and backend, So The loadData function has the following stages:
     1. Create a tracer and start a parent span.
     2. Call the backend and record the span duration.
     3. Process the data and record the span duration.
     4. End the parent span.
-    5. Report the parent span along with the child spans (fetchDataSpan and processDataSpan) to the OpenTelemetry backend, I run to the issue where i couldn't set the parent span ID.    
+    5. Report the parent span along with the child spans (fetchDataSpan and processDataSpan) to the OpenTelemetry backend, I run to the issue where i couldn't set the parent span ID.   
+ 
 **Code here**: https://github.com/anis-nouri/aws-bootcamp-cruddur-2023/blob/test/frontend-react-js/src/pages/HomeFeedPage.js
 
 That's all here is the result from the Honeycomb, when I go to the Home page feed:
