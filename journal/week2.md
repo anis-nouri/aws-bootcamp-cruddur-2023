@@ -197,8 +197,8 @@ root.render(
     2. Call the backend and record the span duration.
     3. Process the data and record the span duration.
     4. End the parent span.
-    5. Report the parent span along with the child spans (fetchDataSpan and processDataSpan) to the OpenTelemetry backend, I run to the issue where i couldn't set the parent span ID.  
- **Code here**: https://github.com/anis-nouri/aws-bootcamp-cruddur-2023/blob/test/frontend-react-js/src/pages/HomeFeedPage.js
+    5. Report the parent span along with the child spans (fetchDataSpan and processDataSpan) to the OpenTelemetry backend, I run to the issue where i couldn't set the parent span ID.    
+**Code here**: https://github.com/anis-nouri/aws-bootcamp-cruddur-2023/blob/test/frontend-react-js/src/pages/HomeFeedPage.js
 
 That's all here is the result from the Honeycomb, when I go to the Home page feed:
 ![Honeycomb Dataset](assets/week2-Honeycomb-Traces-2.PNG)
