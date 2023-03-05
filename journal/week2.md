@@ -189,24 +189,23 @@ root.render(
   </React.StrictMode>
 );
 ```
-4. Create a function that reports spans to a backend server by extracting relevant information from each span and sending it as a payload using a POST request
-Code here: https://github.com/anis-nouri/aws-bootcamp-cruddur-2023/blob/test/frontend-react-js/src/utilities/tracing.js
+4. Create a function that reports spans to a backend server by extracting relevant information from each span and sending it as a payload using a POST request.  
+**Code here**: https://github.com/anis-nouri/aws-bootcamp-cruddur-2023/blob/test/frontend-react-js/src/utilities/tracing.js
 
 6. Create the spans , I tried creating spans In the HomeFeedData Loading function that are gonna help to calculate **latency** between the frontend and backend, So The loadData function has the following stages:
     1. Create a tracer and start a parent span.
     2. Call the backend and record the span duration.
     3. Process the data and record the span duration.
     4. End the parent span.
-    5. Report the parent span along with the child spans (fetchDataSpan and processDataSpan) to the OpenTelemetry backend, I run to the issue where i couldn't set the parent span ID.
- 
-Code here: https://github.com/anis-nouri/aws-bootcamp-cruddur-2023/blob/test/frontend-react-js/src/pages/HomeFeedPage.js
+    5. Report the parent span along with the child spans (fetchDataSpan and processDataSpan) to the OpenTelemetry backend, I run to the issue where i couldn't set the parent span ID.  
+ **Code here**: https://github.com/anis-nouri/aws-bootcamp-cruddur-2023/blob/test/frontend-react-js/src/pages/HomeFeedPage.js
 
 That's all here is the result from the Honeycomb, when I go to the Home page feed:
 ![Honeycomb Dataset](assets/week2-Honeycomb-Traces-2.PNG)
 
 As shown here there are 3 spans under the tace, but the loadData should have been a parent span for both fetchData , and processData, and that's because of the issue I encountered about parent-child span relationship.
 
-I didn't wanna add this to my main branch, so I created a test branch to test this code here is the [link](https://github.com/anis-nouri/aws-bootcamp-cruddur-2023/tree/test). 
+I didn't wanna add this to my main branch, so I created a **test branch** to test this code, here is the [link](https://github.com/anis-nouri/aws-bootcamp-cruddur-2023/tree/test). 
 
 ## Rollbar:
 ![Bug Tracking](https://uploads-ssl.webflow.com/615af81f65d1ab72d2969269/6176011ed02509f4285f2595_bug-reports-750x365.jpg)
