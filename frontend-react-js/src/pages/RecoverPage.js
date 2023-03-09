@@ -2,7 +2,7 @@ import './RecoverPage.css';
 import React from "react";
 import {ReactComponent as Logo} from '../components/svg/logo.svg';
 import { Link } from "react-router-dom";
-
+import { Auth } from 'aws-amplify';
 export default function RecoverPage() {
   // Username is Eamil
   const [username, setUsername] = React.useState('');
@@ -12,14 +12,27 @@ export default function RecoverPage() {
   const [errors, setErrors] = React.useState('');
   const [formState, setFormState] = React.useState('send_code');
 
+ 
+
   const onsubmit_send_code = async (event) => {
     event.preventDefault();
-    console.log('onsubmit_send_code')
+    setErrors('')
+    Auth.forgotPassword(username)
+    .then((data) => setFormState('confirm_code') )
+    .catch((err) => setErrors(err.message) );
     return false
   }
+  
   const onsubmit_confirm_code = async (event) => {
     event.preventDefault();
-    console.log('onsubmit_confirm_code')
+    setErrors('')
+    if (password == passwordAgain){
+      Auth.forgotPasswordSubmit(username, code, password)
+      .then((data) => setFormState('success'))
+      .catch((err) => setErrors(err.message) );
+    } else {
+      setErrors('Passwords do not match')
+    }
     return false
   }
 
@@ -108,18 +121,22 @@ export default function RecoverPage() {
 
   const success = () => {
     return (<form>
-      <p>Your password has been successfully reset!</p>
-      <Link to="/signin" className="proceed">Proceed to Signin</Link>
+      <h2>Your password has been successfully reset!</h2>
+      <div className='porceed-to-signup'>
+      <Link to="/signup" className="action">
+      Proceed to Signin
+        </Link>
+        </div>
     </form>
     )
     }
 
   let form;
   if (formState == 'send_code') {
-    form = send_code()
+    form = success()
   }
   else if (formState == 'confirm_code') {
-    form = confirm_code()
+    form = success()
   }
   else if (formState == 'success') {
     form = success()
